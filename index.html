@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>La Previa, otra fomra de escuchar musica, Sabados 23:00 a 1:00</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.countdown.js"></script>
+	<script type="text/javascript" src="jquery.countdown-es.js"></script>
+	<script type="text/javascript" src="modernizr.custom.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			/* ---- Countdown timer ---- */
+			var dias = (new Date());
+			var dia = dias.getUTCDay();
+			var diasfaltan = 6 - dia;
+			diasfaltan = diasfaltan * 24 * 60 * 60 * 1000;
+			$('#counter').countdown(diasfaltan{
+			    timestamp : diasfaltan
+			});
+		});
+	</script>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+	<header id="Logo"><img src="logo.jpg" alt="La Previa"></header>
+	<section>
+		<div id="counter">
+            <!-- La cuenta regresiva (el contador) -->
+        </div>
+		<article id="reproductor">
+			<div id="container"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.
+			<a href="http://www.shoutcheap.com/shoutcast/">shoutcast server hosting</a>
+			<a href="http://www.shoutcheap.com/icecast/">icecast server hosting</a></div>
+			<script type="text/javascript" src="http://www.shoutcheap.com/flashplayer/skins/swfobject.js"></script>
+			<script type='text/javascript'>
+				var s1 = new SWFObject('http://www.shoutcheap.com/flashplayer/skins/player.swf',
+				'player',"340","80","9","#000000");
+				s1.addParam('allowfullscreen','true');
+				s1.addParam('allowscriptaccess','always')
+				s1.addParam("flashvars","skin=http://www.shoutcheap.com/flashplayer/skins/playcasso.swf&title=Live Stream&type=sound&file=http://173.193.205.96:9068/stream%3Ftype%3D.mp3 &13202692901&duration=99999&id=scplayer&autostart=true");
+				s1.write("container");
+			</script>
+		</article>
+		<article id="chat"></article>
+	</section>
+	<footer></footer>
+</body>
+</html>
