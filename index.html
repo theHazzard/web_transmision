@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<title>La Previa, otra fomra de escuchar musica, Sabados 23:00 a 1:00</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="modernizr.custom.js"></script>
 	<script type="text/javascript" src="jquery.countdown.js"></script>
 	<script type="text/javascript" src="jquery.countdown-es.js"></script>
-	<script type="text/javascript" src="modernizr.custom.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -14,10 +14,11 @@
 			var dias = (new Date());
 			var dia = dias.getUTCDay();
 			var diasfaltan = 6 - dia;
-			diasfaltan = diasfaltan * 24 * 60 * 60 * 1000;
-			$('#counter').countdown(diasfaltan{
-			    timestamp : diasfaltan
-			});
+			diasfaltan = (new Date()).getTime() + diasfaltan * 24 * 60 * 60 * 1000;
+			var options = {
+				timestamp : diasfaltan
+			};
+			$('#counter').countdown(options);
 		});
 	</script>
 	<link rel="stylesheet" type="text/css" href="reset.css">
