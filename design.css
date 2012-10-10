@@ -19,11 +19,18 @@ header{
     display: none;
 }
 
+.textoContador {
+    font-family: 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #a6a6a6;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
 /* ---- Counter ---- */
 #counter {
     width: 700px;
     height: 145px;
-    margin: 20px auto 0 auto;
+    margin: 5px auto 0 auto;
     font-family: 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
     font-size: 92px;
     color: #F0F0EE;
