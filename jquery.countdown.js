@@ -19,7 +19,9 @@
 		var options = $.extend({
 			callback	: function(){},
 			timestamp	: 0,
-			onExpiry    : function(){}
+			onExpiry    : function(){},
+			endTime     : 0,
+			onEndTime   : function(){}
 		},prop);
 		
 		var left, d, h, m, s, positions;
