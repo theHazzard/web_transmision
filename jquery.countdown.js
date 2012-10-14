@@ -18,7 +18,8 @@
 		
 		var options = $.extend({
 			callback	: function(){},
-			timestamp	: 0
+			timestamp	: 0,
+			onExpiry    : function(){}
 		},prop);
 		
 		var left, d, h, m, s, positions;
@@ -35,6 +36,7 @@
 			
 			if(left < 0){
 				left = 0;
+				options.onExpiry();
 			}
 			
 			// Number of days left
