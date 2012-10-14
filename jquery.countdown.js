@@ -12,6 +12,16 @@
 	var days	= 24*60*60,
 		hours	= 60*60,
 		minutes	= 60;
+
+	var onlineSwitch = false;
+	function onlineCheck(r){
+		var elDia = new Date();
+		if (r == 0 || (elDia.getDay() == 0 && (elDia.getHours() == 0 ))){
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	// Creating the plugin
 	$.fn.countdown = function(prop){
@@ -39,10 +49,12 @@
 				left = 0;
 			}
 			
-			var elDia = new Date();
-			if (left == 0 || (elDia.getDay() == 0 && (elDia.getHours() == 0 ))){
+			if (onlineCheck(left) && ~onlineSwitch){
+				onlineSwitch = true;
 				options.onExpiry();
-			} else {
+			}
+			if (~onlineCheck(left) && onlineSwitch){
+				onlineSwitch = false;
 				options.onFinish();
 			}
 			
