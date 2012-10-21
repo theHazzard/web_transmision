@@ -20,8 +20,7 @@
 			callback	: function(){},
 			timestamp	: 0,
 			onExpiry    : function(){},
-			endTime     : 0,
-			onEndTime   : function(){}
+			onFinish    : function(){}
 		},prop);
 		
 		var left, d, h, m, s, positions;
@@ -35,10 +34,16 @@
 			
 			// Time left
 			left = Math.floor((options.timestamp - (new Date())) / 1000);
-			
+
 			if(left < 0){
 				left = 0;
+			}
+			
+			var elDia = new Date();
+			if (left == 0 || (elDia.getDay() == 0 && (elDia.getHours() == 0 ))){
 				options.onExpiry();
+			} else {
+				options.onFinish();
 			}
 			
 			// Number of days left

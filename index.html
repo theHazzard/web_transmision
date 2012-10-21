@@ -10,9 +10,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			function reemplazar(){
-				$('#counter').fadeOut('slow');
+				$('#counter, .textoContador').fadeOut('slow');
 				$('#reproductor').fadeIn('slow');
-			};
+			}
+			function recuperar(){
+				$('#reproductor').fadeOut('slow');
+				$('#counter, .textoContador').fadeIn('slow');
+			}
 			/* ---- Countdown timer ---- */
 			var dia = new Date();
 			var dias = dia.getDay();
@@ -21,12 +25,14 @@
 				dia.getMonth(),
 				dia.getDate()
 				);
-			faltandias = faltandias.getTime() + dias * 24 * 60 * 60 * 1000;
-			faltandias = faltandias + 22 * 60 * 60 * 1000;
-			
+			var empieza = faltandias.getTime() + dias * 24 * 60 * 60 * 1000;
+			empieza = empieza + 22 * 60 * 60 * 1000;		
+
+
 			var options = {
-				timestamp: faltandias,
-				onExpiry: reemplazar
+				timestamp: empieza,
+				onExpiry: reemplazar,
+				onFinish: recuperar
 			};
 			$('#counter').countdown(options);
 		});
